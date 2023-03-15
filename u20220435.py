@@ -11,6 +11,9 @@ class Persona(ABC):
     def impresion(self):
         pass
     
+    @abstractmethod
+    def informacion_adicional(self):
+        pass
 class Estudiante(Persona):
     def __init__(self, nombre, edad, telefono, ocupacion, codigo):
         super().__init__(nombre, edad, telefono, ocupacion)
@@ -26,7 +29,9 @@ class Estudiante(Persona):
                     Ocupacion: {self.ocupacion}
                     Codigo: {self.codigo} 
                     ********************************\n'''
-                    
+    
+    def informacion_adicional(self):
+        return "Esta estudiando Ing. en desarrollo de software"                
 
 class Trabajador(Persona):
     def __init__(self, nombre, edad, telefono, ocupacion, codigo):
@@ -44,6 +49,8 @@ class Trabajador(Persona):
                     Codigo: {self.codigo} 
                     ********************************\n'''
                     
+    def informacion_adicional(self):
+        return "Esta trabajando de desarrollador de software"
 
 class Nini (Persona):
     def __init__(self, nombre, edad, telefono, ocupacion, codigo):
@@ -60,7 +67,10 @@ class Nini (Persona):
                     Ocupacion: {self.ocupacion}
                     Codigo: {self.codigo}
                     ********************************\n'''
-                    
+    
+    def informacion_adicional(self):
+        return "Esta buscando trabajo"
+
 student = Estudiante('Cristian Rivera' , 19 , 76165646, 'Estudiante' , 'u20220435')
 print(student.impresion())
         
